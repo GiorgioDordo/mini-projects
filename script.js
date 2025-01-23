@@ -1,42 +1,24 @@
-const body = document.getElementsByTagName("body")[0];
-const button = document.querySelectorAll("button");
-const green = document.getElementById("green");
-const red = document.getElementById("red");
-const blue = document.getElementById("blue");
-const random = document.getElementById("random");
+const input = document.getElementById("input");
+const result = document.getElementById("result");
 
-function setColor(name) {
-    body.style.backgroundColor = name;
+// split mi divide la stringa per singoli oggetti e me li mette in un array
+// reverse mi inverte gli ordini degli oggetti nell'array
+// join mi riunisce gli oggetti in un unica stringa
+function reverseString(str) {
+    return str.split("").reverse().join("");
 }
 
-function randomColor() {
-    const red = Math.round(Math.random() * 255);
-    const green = Math.round(Math.random() * 255);
-    const blue = Math.round(Math.random() * 255);
+function check() {
+    const value = input.value;
+    const reverse = reverseString(value);
 
-    const color = `rgb(${red},${green},${blue})`;
+    if (value == "") {
+        result.innerHTML = `<h2 class="text-danger-emphasis">PLEASE ENTER A VALUE</h2>`
+    } else if (reverse == value) {
+        result.innerHTML = `<h2 class="text-success">IT IS PALINDROME</h2>`;
+    } else {
+        result.innerHTML = `<h2 class="text-danger">IT IS NOT PALINDROME</h2>`;
+    }
 
-    body.style.backgroundColor = color;
+    input.value = "";
 }
-
-
-green.addEventListener("click", () => {
-    setColor("green");
-})
-
-red.addEventListener("click", () => {
-    setColor("red");
-})
-
-blue.addEventListener("click", () => {
-    setColor("blue");
-})
-
-random.addEventListener("click", () => {
-    randomColor();
-})
-
-// in alternativa agli addEventListener potevo utilizzare onclick direttamente sull'html,
-// ed asseggnare ad ogni elemento la propria funzione
-
-
