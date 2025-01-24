@@ -22,3 +22,9 @@ input {
 #result {
     text-align: center;
 }
+
+@media screen and (max-width: 580px) {
+    .container {
+        margin: 0 10px;
+    }
+}
