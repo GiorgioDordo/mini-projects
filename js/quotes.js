@@ -284,3 +284,5 @@ const quotes = [
         author: "Jim Rohn"
     }
 ];
+
+export { quotes };
